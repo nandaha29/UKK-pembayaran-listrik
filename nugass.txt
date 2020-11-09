@@ -1,0 +1,56 @@
+PROJECT PEMATANGAN NODE
+
+-------------------------yang harus diganti-------------------------
+tabel pembayaran
+status: varchar (20) diganti status: boolean
+0= belum diverifikasi 1= sudah terverifikasi
+
+tabel tagihan
+status: varchar (20) diganti status: boolean
+0=belum bayar 1=sudah bayar
+
+tabel level
+-pimpinan
+-administrator
+----------------------------------------------------------------------
+
+------------------------------auth di--------------------------------
+admin dan penggunaan
+----------------------------------------------------------------------
+
+------------------------------authorize -----------------------------
+token admin: utk semua endpoint kecuali register dan login
+token pelanggan:  utk pembayaran
+endpoint yang tanpa token: login dan register
+----------------------------------------------------------------------
+
+---------------------------yang harus ada--------------------------
+-endpoint CRUD
+-endpoint registrasi pelanggan
+-endpoint verifikasi dan validasi (mengubah status 0 menjadi 1 pada table pembayaran)
+-endpoint pembayaran (menambah data pembayaran dan update status tagihan dari 0 menjadi 1)
+----------------------------------------------------------------------
+
+------------------data request saat pembayaran------------------
+Request:
+id_tagihan, bulan_bayar, biaya_admin, total_bayar (jika tidak bisa otomatis kalkulasi), bukti, id_admin
+----------------------------------------------------------------------
+
+----------------------------auto terisi-------------------------------
+tgl_pembayaran (current date) 
+status (diisi 0)
+----------------------------------------------------------------------
+
+----------------------------urutan migrate-------------------------
+level > admin > tarif > pelanggan > penggunaan > tagihan > pembayaran
+----------------------------------------------------------------------
+
+-----------------------------pengumpulan-------------------------
+dokumen berupa modul dan link github
+----------------------------------------------------------------------
+
+
+---------------------------- DEADLINE ----------------------------
+pengerjaan seminggu 
+jadi sampe, 9 nov
+----------------------------------------------------------------------
